@@ -6,10 +6,13 @@ using namespace std;
 
 void main() {
 	TCalc C;
+	string inf = "2+3^3";
 
-	cout << "2*3+4" << endl;
-	C.Setinfix("2*3+4");
-	//C.Check();
+	cout << inf << endl;
+	C.Setinfix(inf);
+	C.Check();
+
+	C.Setinfix(inf);
 	C.topostfix();
 	double res = C.calc();
 	cout << res << endl;

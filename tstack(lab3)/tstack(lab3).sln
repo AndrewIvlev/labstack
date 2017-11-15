@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "tstack(lab3)", "tstack(lab3)\tstack(lab3).vcproj", "{8D109CD6-FFFB-4D78-A26B-EBA78CD7DE25}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "test", "test\test.vcproj", "{9D92B92B-F72D-4FB8-83B3-A72E2CAFCD03}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8D109CD6-FFFB-4D78-A26B-EBA78CD7DE25}.Debug|Win32.ActiveCfg = Debug|Win32
+		{8D109CD6-FFFB-4D78-A26B-EBA78CD7DE25}.Debug|Win32.Build.0 = Debug|Win32
+		{8D109CD6-FFFB-4D78-A26B-EBA78CD7DE25}.Release|Win32.ActiveCfg = Release|Win32
+		{8D109CD6-FFFB-4D78-A26B-EBA78CD7DE25}.Release|Win32.Build.0 = Release|Win32
+		{9D92B92B-F72D-4FB8-83B3-A72E2CAFCD03}.Debug|Win32.ActiveCfg = Debug|Win32
+		{9D92B92B-F72D-4FB8-83B3-A72E2CAFCD03}.Debug|Win32.Build.0 = Debug|Win32
+		{9D92B92B-F72D-4FB8-83B3-A72E2CAFCD03}.Release|Win32.ActiveCfg = Release|Win32
+		{9D92B92B-F72D-4FB8-83B3-A72E2CAFCD03}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

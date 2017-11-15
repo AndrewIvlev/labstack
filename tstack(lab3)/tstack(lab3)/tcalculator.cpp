@@ -6,19 +6,21 @@ int TCalc::priority(char op)
 
 	switch ( op ){
 		case '(': p = 0; break;
-		case ')': p = 0; break;
+	//	case ')': p = 0; break;
 		case '+': p = 1; break;
 		case '-': p = 1; break;
 		case '*': p = 2; break;
 		case '/': p = 2; break;
 		case '^': p = 3; break;
-		default: throw op;
+		default: throw p;
 	}
 	return p;
 }
 bool TCalc::Check()
 {
 	stc.Clear();
+
+
 	for(unsigned int i = 0; i < infix.size(); i++)
 	{
 		if( infix[i] == '(' )
@@ -55,7 +57,7 @@ void TCalc::topostfix()
 		if( buf[i] == '+' || buf[i] == '-' || buf[i] == '*' || buf[i] == '/' || buf[i] == '^' )
 		{
 			postfix += ' ';
-			while( priority(buf[i]) <= priority(stc.pop()) )
+			while( priority(buf[i]) <= priority(stc.top()) )
 				postfix += stc.pop();
 			stc.push(buf[i]);
 		}
