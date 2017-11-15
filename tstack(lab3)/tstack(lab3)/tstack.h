@@ -7,7 +7,7 @@ class TStack{
 public:
 	TStack(int _size=200)
 	{
-		if(_size <= 0) throw _size;
+		if(_size < 0) throw _size;
 		array = new T[_size];
 		maxsize = _size;
 		size = 0;
