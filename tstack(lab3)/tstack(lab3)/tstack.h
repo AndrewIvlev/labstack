@@ -1,19 +1,21 @@
-template <class T>
+const int MAX_STACK_SIZE = 100000000;
 
+template <class T>
 class TStack{
 	int size;
 	int maxsize;
 	T* array;
 public:
-	TStack(int _size=200)
+	TStack(int _size=50)		// Конструктор 
 	{
-		if(_size < 0) throw _size;
+		if ( _size < 0 || _size > MAX_STACK_SIZE )
+			throw _size;
 		array = new T[_size];
 		maxsize = _size;
 		size = 0;
 	}
 	~TStack(){delete[] array;}
-	TStack(const TStack& ts)
+	TStack(const TStack& ts)		// Конструктор копирования
 	{
 		size = ts.size;
 		maxsize = ts.maxsize;
@@ -23,10 +25,10 @@ public:
 	}
 	TStack& operator=(TStack& ts)
 	{
-		is(this != &ts){
+		if(this != &ts){
 			if(maxsize != ts.maxsize)
 			{
-				delete[i] array;
+				delete[] array;
 				maxsize = ts.maxsize;
 				size = ts.size;
 				array = new T[maxsize];
@@ -47,10 +49,7 @@ public:
 	T pop()
 	{
 		if(isempty()) throw -1;
-		else{
-			size--;
-			return array[size];
-		}
+		else	return array[--size];
 	}
 	void push(const T &el)
 	{
