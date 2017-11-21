@@ -25,7 +25,7 @@ bool TCalc::Check()
 	{
 		if( infix[i] == '(' )
 		{
-			//
+			if ( stc.isfull() ) throw i;
 			stc.push('(');
 		}
 		if( infix[i] == ')' )
@@ -43,7 +43,10 @@ void TCalc::topostfix()
 	string buf = '(' + infix + ')';
 	for(unsigned int i = 0; i < buf.size(); i++)
 	{
-		if( buf[i] == '(') stc.push(buf[i]);
+		if( buf[i] == '(')	{
+			stc.push(buf[i]);
+			if( buf[i+1] == '-' ) postfix += '0';
+		}
 		if( buf[i] >= '0' && buf[i] <= '9' || buf[i] == '.' ) postfix += buf[i];
 		if( buf[i] == ')')
 		{

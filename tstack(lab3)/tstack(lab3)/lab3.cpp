@@ -6,7 +6,7 @@ using namespace std;
 
 int main() {
 	TCalc C;
-	string inf = "2+13^3+123/156513";
+	string inf = "*5 + (-3)*(-2)";
 	setlocale(LC_ALL, "Russian");
 
 	C.Setinfix(inf);

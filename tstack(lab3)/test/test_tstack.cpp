@@ -96,7 +96,7 @@ TEST(TStack, can_assign_stacks_of_different_size)
 	TStack<int> s(4);
 	TStack<int> s1(5);
 
-	ASSERT_NO_THROW(s1 = s);;
+	ASSERT_NO_THROW(s1 = s);
 }
 
 TEST(TStack, can_throw_top_of_stack_which_is_not_empty)

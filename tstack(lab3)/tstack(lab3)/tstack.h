@@ -25,18 +25,17 @@ public:
 	}
 	TStack& operator=(TStack& ts)
 	{
-		if(this != &ts){
-			if(maxsize != ts.maxsize)
-			{
+		if ( this != &ts )	{
+			if ( maxsize != ts.maxsize )	{
 				delete[] array;
 				maxsize = ts.maxsize;
 				size = ts.size;
-				array = new T[maxsize];
+				array = new T[maxsize]; 
 			}
-			for(int i = 0; i < size; i++)
+			for ( int i = 0; i < size; i++ )
 				array[i] = ts.array[i];
 			return *this;
-		}
+		}	else return *this;
 	}
 	void Clear(){size = 0;}
 	int isfull(){return (size == maxsize);}
