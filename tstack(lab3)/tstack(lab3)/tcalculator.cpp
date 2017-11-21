@@ -20,7 +20,6 @@ bool TCalc::Check()
 {
 	stc.Clear();
 
-
 	for(unsigned int i = 0; i < infix.size(); i++)
 	{
 		if( infix[i] == '(' )
