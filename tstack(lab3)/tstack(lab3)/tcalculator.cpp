@@ -2,35 +2,37 @@
 
 int TCalc::priority(char op)
 {
-	int p = -1;
-
 	switch ( op ){
-		case '(': p = 0; break;
-	//	case ')': p = 0; break;
-		case '+': p = 1; break;
-		case '-': p = 1; break;
-		case '*': p = 2; break;
-		case '/': p = 2; break;
-		case '^': p = 3; break;
-		default: throw p;
+		case '(': 
+		case ')': return 0;
+		case '+': 
+		case '-': return 1;
+		case '*': 
+		case '/': return 2;
+		case '^': return 3;
+		default: throw op;
 	}
-	return p;
 }
 bool TCalc::Check()
 {
 	stc.Clear();
 
-	for(unsigned int i = 0; i < infix.size(); i++)
+	string inf = '(' + infix + ')';
+	for(unsigned int i = 0; i < inf.size(); i++)
 	{
-		if( infix[i] == '(' )
+		if( inf[i] == '(' )
 		{
+			if ( inf[i+1] == '*' || inf[i+1] == '/' || inf[i+1] == '^') return false;
 			if ( stc.isfull() ) throw i;
 			stc.push('(');
 		}
-		if( infix[i] == ')' )
+		if( inf[i] == ')' )
 		{
 			if(stc.isempty()) return false;
 			else stc.pop();
+		}
+		if( inf[i] == '+' || inf[i] == '-' || inf[i] == '*' || inf[i] == '/' || inf[i] == '^' ){
+			if ( inf[i+1] == ')' || inf[i+1] == '+' || inf[i+1] == '-' || inf[i+1] == '*' || inf[i+1] == '/' || inf[i+1] == '^' ) return false;
 		}
 	}
 	if(!stc.isempty()) return false;
@@ -44,9 +46,9 @@ void TCalc::topostfix()
 	{
 		if( buf[i] == '(')	{
 			stc.push(buf[i]);
-			if( buf[i+1] == '-' ) postfix += '0';
+			if ( buf[i+1] == '-' || buf[i+1] == '+' ) postfix += '0';
 		}
-		if( buf[i] >= '0' && buf[i] <= '9' || buf[i] == '.' ) postfix += buf[i];
+		if( buf[i] >= '0' && buf[i] <= '9' || buf[i] == '.' )	postfix += buf[i];
 		if( buf[i] == ')')
 		{
 			char el = stc.pop();

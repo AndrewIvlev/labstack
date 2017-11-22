@@ -40,19 +40,23 @@ TEST(TCalc, can_multiply_two_numbers)
 TEST(TCalc, check_expression_that_is_correct)
 {
 	TCalc C;
+	bool b;
 
 	C.Setinfix("56+92*8/2");
+	b = C.Check();
 
-	EXPECT_EQ( true, C.Check() );
+	EXPECT_EQ( true, b );
 }
 
 TEST(TCalc, check_expression_that_is_incorrect)
 {
 	TCalc C;
+	bool b;
 
 	C.Setinfix(")56+92*8(");
+	b = C.Check();
 
-	EXPECT_EQ( false, C.Check() );
+	EXPECT_EQ( false, b );
 }
  
 TEST(TCalc, can_divide_numbers)
@@ -74,3 +78,58 @@ TEST(TCalc, expression_is_prioritized)
 
 	EXPECT_EQ( 0, C.calc() );
 }
+
+TEST(TCalc, expression_cant_begin_with_multiplication)
+{
+	TCalc C;
+
+	C.Setinfix("*2+2");
+
+	EXPECT_EQ( false, C.Check() );
+}
+
+TEST(TCalc, expression_cant_begin_with_division)
+{
+	TCalc C;
+
+	C.Setinfix("/2+2");
+
+	EXPECT_EQ( false, C.Check() );
+}
+
+TEST(TCalc, expression_cant_begin_with_exponentiation)
+{
+	TCalc C;
+
+	C.Setinfix("^2+2");
+
+	EXPECT_EQ( false, C.Check() );
+}
+
+TEST(TCalc, expression_cant_end_with_multiplication)
+{
+	TCalc C;
+
+	C.Setinfix("2+2*");
+
+	EXPECT_EQ( false, C.Check() );
+}
+
+TEST(TCalc, expression_cant_end_with_division)
+{
+	TCalc C;
+
+	C.Setinfix("/2+2");
+
+	EXPECT_EQ( false, C.Check() );
+}
+
+TEST(TCalc, expression_cant_end_with_exponentiation)
+{
+	TCalc C;
+
+	C.Setinfix("2+2^");
+
+	EXPECT_EQ( false, C.Check() );
+}
+
