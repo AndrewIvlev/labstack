@@ -1,4 +1,4 @@
-#include "tcalculator.h"
+#include "stdafx.h"
 
 int TCalc::priority(char op)
 {
@@ -67,7 +67,7 @@ void TCalc::topostfix()
 		}
 	}
 }
-double TCalc::Calc()
+double TCalc::calc()
 {
 	stdub.Clear();
 

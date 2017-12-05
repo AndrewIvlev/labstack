@@ -1,6 +1,5 @@
 #include <iostream>
 #include "tcalculator.h"
-//#include "TStack.h"
 
 using namespace std;
 
@@ -12,19 +11,22 @@ int main() {
 	cout << "Введите выражение" << endl;
 	while ( cin >> expr ){
 		if ( expr == "exit" ) break;
-		C.Setinfix(expr);
+		C.SetInfix(expr);
 		if ( C.Check() )	{
 			cout << "Выражение введено корректно." << endl;
-			C.Setinfix(expr);
+			C.SetInfix(expr);
 			C.topostfix();
-		//	cout << C.Getpostfix() << endl; //Вывод постфиксной записи выражения
-			double res = C.calc();
+			cout << "Постфиксная запись выражения: " << C.GetPostfix() << endl;
+			double res = C.Calc();
 			cout << expr + " = "  << res << endl;
 			cout << "--------------------------------------" << endl;
-		}	else{
+			cout << "Введите выражение" << endl;
+		}	else	{
 			cout << "Выражение введено некорректно." << endl;
 			cout << "--------------------------------------" << endl;
+			cout << "Введите выражение" << endl;
 		}
+		C.ClearPostfix();
 	}
 	return 0;
 }

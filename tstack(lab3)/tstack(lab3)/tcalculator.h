@@ -13,10 +13,11 @@ public:
 	TCalc(){}
 	~TCalc(){}
 	int priority(char op);
-	void Setinfix(const string _inf){infix = _inf;}
-	string Getinfix(){return infix;}
-	string Getpostfix(){return postfix;}
+	void SetInfix(const string _inf){infix = _inf;}
+	string GetInfix(){return infix;}
+	string GetPostfix(){return postfix;}
+	void ClearPostfix(){postfix = "";}
 	bool Check();
 	void topostfix();
-	double calc();
+	double Calc();
 };

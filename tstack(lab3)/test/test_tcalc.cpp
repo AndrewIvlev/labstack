@@ -53,7 +53,7 @@ TEST(TCalc, check_expression_that_is_incorrect)
 	TCalc C;
 	bool b;
 
-	C.Setinfix(")56+92*8(");
+	C.Setinfix(")56+92*8");
 	b = C.Check();
 
 	EXPECT_EQ( false, b );
