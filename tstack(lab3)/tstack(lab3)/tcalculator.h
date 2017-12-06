@@ -1,5 +1,6 @@
 #include "tstack.h"
 #include <string>
+#define _USE_MATH_DEFINES
 #include <math.h>
 
 using namespace std;
@@ -13,6 +14,7 @@ public:
 	TCalc(){}
 	~TCalc(){}
 	int priority(char op);
+	double factorial(int n);
 	void SetInfix(const string _inf){infix = _inf;}
 	string GetInfix(){return infix;}
 	string GetPostfix(){return postfix;}
